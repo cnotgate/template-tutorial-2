@@ -1,0 +1,6 @@
+res://default_env.tres
+res://scenes/NewLevel.tscn
+res://scenes/blue_ship_new_level.gd
+res://scenes/MainLevel.tscn
+res://scenes/PlatformBlue.gd
+res://scenes/StonePlatform.tscn

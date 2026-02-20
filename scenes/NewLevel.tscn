@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://vdqxt2vcdabv"]
+
+[ext_resource type="Script" uid="uid://bsuv2svmaqypq" path="res://scenes/PlatformBlue.gd" id="1_5bd2b"]
+[ext_resource type="PackedScene" uid="uid://y5a4e3ajuy2r" path="res://scenes/StonePlatform.tscn" id="2_iuvrt"]
+[ext_resource type="Script" uid="uid://32xcje5cccex" path="res://scenes/objective_area.gd" id="3_iuvrt"]
+[ext_resource type="PackedScene" uid="uid://datfp8kxjrjg" path="res://scenes/BlueShip.tscn" id="3_xev8i"]
+[ext_resource type="Script" uid="uid://bpcs1h5fe22sj" path="res://scenes/blue_ship_new_level.gd" id="5_iuvrt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vd1b"]
+size = Vector2(1156.75, 79)
+
+[node name="NewLevel" type="Node" unique_id=499059046]
+
+[node name="PlatformBlue" type="Node2D" parent="." unique_id=654636865]
+position = Vector2(35, 565)
+script = ExtResource("1_5bd2b")
+
+[node name="StonePlatform" parent="PlatformBlue" unique_id=1537107821 instance=ExtResource("2_iuvrt")]
+
+[node name="StonePlatform2" parent="PlatformBlue" unique_id=1463480543 instance=ExtResource("2_iuvrt")]
+position = Vector2(70, 0)
+
+[node name="ObjectiveArea" type="Area2D" parent="." unique_id=813711291]
+script = ExtResource("3_iuvrt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea" unique_id=30793025]
+position = Vector2(579.625, 40)
+shape = SubResource("RectangleShape2D_5vd1b")
+
+[node name="BlueShip" parent="." unique_id=402681762 instance=ExtResource("3_xev8i")]
+position = Vector2(580, 388)
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("5_iuvrt")
+speed = 10
+
+[connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
